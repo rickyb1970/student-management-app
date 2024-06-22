@@ -1,0 +1,37 @@
+<!-- src/app/student-edit/student-edit.component.html -->
+<div *ngIf="student">
+  <h2>Edit Student</h2>
+  <form [formGroup]="studentForm" (ngSubmit)="submitForm()">
+  <input formControlName="studentNumber" type="hidden">
+  <div>
+  <label for="studentFirstName">First Name</label>
+  <input id="studentFirstName" formControlName="studentFirstName"
+ type="text">
+  </div>
+  <div>
+  <label for="studentLastName">Last Name</label>
+  <input id="studentLastName" formControlName="studentLastName"
+ type="text">
+  </div>
+  <div>
+  <label for="studentCollege">College</label>
+  <select id="studentCollege" formControlName="studentCollege">
+  <option *ngFor="let college of colleges" [value]="college">{{ college
+ }}</option>
+  </select>
+  </div>
+  <div>
+  <label for="studentProgram">Program</label>
+  <select id="studentProgram" formControlName="studentProgram">
+  <option *ngFor="let program of programs" [value]="program">{{ program
+ }}</option>
+  </select>
+  </div>
+  <div>
+  <label for="studentYear">Year</label>
+  <input id="studentYear" formControlName="studentYear" type="number">
+  </div>
+  <button type="submit">Save</button>
+  <button type="button" (click)="cancel()">Cancel</button>
+  </form>
+ </div>
